@@ -1,0 +1,14 @@
+/* @media (max-width: 576px) {
+  .row.mb-3 {
+    flex-direction: column;
+  }
+  
+  .row.mb-3 label {
+    order: 1;
+  }
+} */
+
+
+div {
+    white-space: normal;
+  }
