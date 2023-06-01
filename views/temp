@@ -1,0 +1,57 @@
+<div>
+            <label for="eventid"><strong>Job No: </strong></label>
+            <p contenteditable="false">2584182</p>
+        </div>
+        <div>
+            <label for="eventid"><strong>Name: </strong></label>
+            <p contenteditable="true"><%= requests.issuer %></p>
+        </div>
+        <div>
+            <label for="eventid"><strong>D/B/U/B: </strong></label>
+            <p contenteditable="true">Birthday</p>
+        </div>
+        <div>
+            <label for="eventid"><strong>Extension: </strong></label>
+            <p contenteditable="true">Agbogbloshie</p>
+        </div>
+        <div>
+            <label for="eventid"><strong>Complaint: </strong></label>
+            <p contenteditable="true">some pic</p>
+        </div>
+        <div>
+            <label for="eventid"><strong>Comment: </strong></label>
+            <p contenteditable="true">No10 Okum Tsola Street</p>
+        </div>
+        <div>
+            <label for="eventid"><strong>Date issued: </strong></label>
+            <p contenteditable="true">J.B. Hayfron Acquah</p>
+        </div>
+        <div>
+            <label for="eventid"><strong>Time issued: </strong></label>
+            <p contenteditable="true">Agya Akwa @60</p>
+        </div>
+        <div>
+            <label for="eventid"><strong>Status: </strong></label>
+            <p contenteditable="true">Today</p>
+        </div>
+        <!-- <div>
+            <label for="eventid"><strong>Date completed: </strong></label>
+            <p contenteditable="true">Yesterday</p>
+        </div>
+        
+        <div>
+            <label for="eventid"><strong>Digital Address: </strong></label>
+            <p contenteditable="true">GZ21665125</p>
+        </div>
+        <div>
+            <label for="eventid"><strong>Email: </strong></label>
+            <p contenteditable="true">itsmybirthday@gmail.com</p>
+        </div>
+        <div>
+            <label for="eventid"><strong>Phone No: </strong></label>
+            <p contenteditable="true">0244158836</p>
+        </div> -->
+        <div class="mb-3">
+            <label for="collectors" class="form-label"><strong>Assigned to: </strong></label>
+            <textarea class="form-control" id="collectors" rows="3" placeholder="Enter assigned collectors' names"></textarea>
+          </div>
