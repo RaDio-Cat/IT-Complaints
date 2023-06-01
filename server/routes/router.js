@@ -14,7 +14,8 @@ route.get('/details', services.detailsRoute)
 //API
 route.post("/api/requests", controller.create)
 route.get("/api/requests", controller.find)
-//route.put("/api/requests/:id", controller.upgrade)
+route.get("/api/requests/:id", controller.find)
+//route.put("/api/requests/:id", controller.update)
 route.delete("/api/requests/:id", controller.delete)
 
 module.exports = route

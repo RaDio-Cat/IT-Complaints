@@ -33,7 +33,9 @@
            <td>
              <!-- <a href="requestform.ejs" class="btn btn-primary btn-sm" role="button">View</a> -->
              <!-- <button type="button" class="btn btn-danger btn-sm">Cancel</button> -->
-             <a class="btn btn-primary" href="details?id=requests[i].jobID" role="button">Details</a>
+             <a class="btn btn-primary" href="details?id=<%= requests[i].jobID %>" role="button">Details</a>
+
+
            </td>
          </tr>
          <% } %>

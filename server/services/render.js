@@ -22,8 +22,19 @@ exports.loginRoute = (req,res) => {
 
 
 exports.detailsRoute = (req,res) => {
-    res.render("complaintsdetails")
+    const documentID = req.params.id;
+
+    axios.get(`http://localhost:3000/api/requests/${documentID}`)
+    .then(function(response) {
+        const documentData = response.data;
+        res.render("complaintsdetails", {requests:documentData});
+    })
+    .catch(function(error){
+        res.send(error);
+    })
 }
+
+
 
 // app.get('list', (req,res) => {
 //     const test = "Sample test data";
