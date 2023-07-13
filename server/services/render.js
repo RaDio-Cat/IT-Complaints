@@ -1,5 +1,6 @@
 const axios = require("axios")
 const { application } = require("express")
+const reqdb = require("../../model/model")
 
 
 exports.homeRoutes = (req, res) => {
@@ -22,16 +23,49 @@ exports.loginRoute = (req,res) => {
 
 
 exports.detailsRoute = (req,res) => {
-    const documentID = req.params.id;
+    const documentID = req.query.id;
+    console.log(documentID)
 
-    axios.get(`http://localhost:3000/api/requests/${documentID}`)
+    axios.get(`http://localhost:3000/api/requests`,{
+        params:{
+            id: documentID
+        }
+    })
     .then(function(response) {
-        const documentData = response.data;
-        res.render("complaintsdetails", {requests:documentData});
+        //console.log(response.data)
+        if(response){
+            const documentData = response.data;
+            res.render("complaintsdetails", {selectedDoc:documentData})
+        }else{
+            res.send("Document not found")
+        }
+       
     })
     .catch(function(error){
         res.send(error);
     })
+
+
+     // const documentData = response.data;
+        // // console.log(documentData)
+        // res.render("complaintsdetails", {selectedDoc:documentData});
+
+
+
+    // const id = req.params.id
+    // console.log(id)
+    // reqdb.findById(id)
+    // .then(data => {
+    //     console.log(data)
+    //   if (data) {
+    //     res.render("complaintsdetails", { selectedDoc: data });
+    //   } else {
+    //     res.send("Document not found");
+    //   }
+    // })
+    // .catch(error => {
+    //   res.send(error);
+    // });
 }
 
 

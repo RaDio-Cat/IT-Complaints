@@ -58,12 +58,16 @@ exports.find = (req, res) => {
 
     if (req.query.id) {
         const id = req.query.id;
+        console.log(id)
         reqdb.findById(id)
         .then(data => {
             if(!data){
-                res.status(400).send({message:id + " not found"})
+                res.status(404).send({message:id + " not found"})
             }else{
-                res.send(data)
+                res.send({
+                    ...data.toObject(),
+                    formattedDateCreated: data.formattedDateCreated
+                })
             }
         })
         .catch(err =>{
@@ -74,6 +78,7 @@ exports.find = (req, res) => {
         reqdb.find().
             then(request => {
                 res.send(request)
+                console.log(request.data)
             })
             .catch(err => {
                 res.status(500).send({ message: err.message || "Error occurs while retrieving data" })

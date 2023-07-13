@@ -55,3 +55,12 @@
             <label for="collectors" class="form-label"><strong>Assigned to: </strong></label>
             <textarea class="form-control" id="collectors" rows="3" placeholder="Enter assigned collectors' names"></textarea>
           </div>
+
+
+
+
+          <!-- <% for (var i=0; i<staff.length; i++){ %>
+                        <li><a class="dropdown-item active" href="#">
+                                <%= staff[i].name %>
+                            </a></li>
+                        <% } %> -->
