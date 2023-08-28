@@ -1,5 +1,6 @@
 const { findByIdAndUpdate } = require('G:/NIB NSS/IT Complaints/model/model')
 var reqdb = require('G:/NIB NSS/IT Complaints/model/model')
+var User = require('G:/NIB NSS/IT Complaints/model/user')
 // const shortid = require('shortid')
 // const {MongoClient} = require('mongodb')
 
@@ -40,7 +41,7 @@ exports.create = (req, res) => {
         comment: req.body.comment,
     })
 
-    //save uset in database
+    //save user in database
     request.save(request)
         .then(data => {
             // res.send(data)
@@ -126,4 +127,22 @@ exports.delete = (req, res) => {
                 message: "could not delete complaint with id " + id
             })
         })
+} 
+
+//staff login
+exports.signin = async (req, res) => {
+    const {username, password} = req.body
+
+    try{
+        const user = await User.findOne({username})
+
+        if(!user || !( await bcrypt.compare(password, user.password))){
+            return res.render('requestform', {error: 'invalid email or password'})
+        }
+        req.session.user = user;
+        res.redirect('/reqform');
+    }catch(error){
+        console.error(error);
+        res.status(500).send('Server error');
+    }
 }

@@ -113,6 +113,9 @@ const morgan = require('morgan');
 const bodyparser = require('body-parser');
 const path = require('path');
 const ejs = require('ejs')
+const session = require('express-session');
+const bcrypt = require('bcrypt')
+
 
 const connectDB = require('G:/NIB NSS/IT Complaints/server/database/connection')
 
@@ -129,6 +132,7 @@ connectDB();
 
 //parse request to bodyParser
 app.use(bodyparser.urlencoded({extended:true}))
+app.use(session({secret:'pizza rules', resave:false, saveUninitialized: true}))
 
 //set view engine
 app.set("view engine","ejs")

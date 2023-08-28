@@ -46,31 +46,5 @@ exports.detailsRoute = (req,res) => {
     })
 
 
-     // const documentData = response.data;
-        // // console.log(documentData)
-        // res.render("complaintsdetails", {selectedDoc:documentData});
-
-
-
-    // const id = req.params.id
-    // console.log(id)
-    // reqdb.findById(id)
-    // .then(data => {
-    //     console.log(data)
-    //   if (data) {
-    //     res.render("complaintsdetails", { selectedDoc: data });
-    //   } else {
-    //     res.send("Document not found");
-    //   }
-    // })
-    // .catch(error => {
-    //   res.send(error);
-    // });
+    
 }
-
-
-
-// app.get('list', (req,res) => {
-//     const test = "Sample test data";
-//     res.render('complaintslist',{test})
-// })
