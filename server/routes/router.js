@@ -10,10 +10,13 @@ route.get('/list', services.listRoute)
 
 route.get('/', services.loginRoute)
 route.get('/details', services.detailsRoute)
+route.get('/register', services.registerRoute)
+
 
 //API
 route.post("/api/requests", controller.create)
 route.post("/api/staff", controller.signin)
+route.post("/api/register", controller.register)
 route.get("/api/requests", controller.find)
 route.get("/api/requests/:id", controller.find)
 // route.get("/api/staff", controller.find)

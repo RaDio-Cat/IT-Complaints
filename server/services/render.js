@@ -21,6 +21,10 @@ exports.loginRoute = (req,res) => {
     res.render("login")
 }
 
+exports.registerRoute = (req,res) => {
+    res.render("register")
+}
+
 
 exports.detailsRoute = (req,res) => {
     const documentID = req.query.id;

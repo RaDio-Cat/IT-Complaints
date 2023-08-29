@@ -7,5 +7,8 @@ const staffSchema = new mongoose.Schema({
     staffID: {type: String, required: true}
 }); 
 
-const User = mongoose.model('staff', staffSchema)
+const User = mongoose.model('staffs', staffSchema)
 module.exports = User
+
+
+ 

@@ -3,16 +3,22 @@
 <!--\include header-->
 
 
-<form method="POST" action="/api/staff" class = "position-absolute top-50 start-50 translate-middle" >
+<form method="POST" action="/api/register" class = "position-absolute top-50 start-50 translate-middle" >
         
     <h5 class="text-center display-6" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;"><strong>NIB: IT HelpDesk</strong></h5>
 
     <div style="background-color: grey; padding: 15px; margin: 10px; border-radius: 5px;">
       <div class="mb-3">
-        <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Username">
+        <input class="form-control" type="text" name="name" id="name" placeholder="Name" aria-label="default input example">
       </div>
       <div class="mb-3">
-        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        <input class="form-control" type="text" name="username" id="username" placeholder="Username" aria-label="default input example">
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control" type="text" name="password" id="password" placeholder="Password" aria-label="default input example">
+      </div>
+      <div class="mb-3">
+        <input  class="form-control" type="text" name="staffID" id="staffID" placeholder="staffID" aria-label="default input example">
       </div>
     </div>
     <!-- <a href="/list" class="btn btn-primary btn-sm" role="button">Login</a> -->

@@ -1,6 +1,8 @@
 const { findByIdAndUpdate } = require('G:/NIB NSS/IT Complaints/model/model')
 var reqdb = require('G:/NIB NSS/IT Complaints/model/model')
 var User = require('G:/NIB NSS/IT Complaints/model/user')
+const bcrypt = require('bcrypt');
+
 // const shortid = require('shortid')
 // const {MongoClient} = require('mongodb')
 
@@ -131,18 +133,68 @@ exports.delete = (req, res) => {
 
 //staff login
 exports.signin = async (req, res) => {
+    console.log(req.body)
     const {username, password} = req.body
+    console.log(username)
 
     try{
         const user = await User.findOne({username})
+        console.log(user)
 
-        if(!user || !( await bcrypt.compare(password, user.password))){
-            return res.render('requestform', {error: 'invalid email or password'})
+        if(!user) {
+            return res.render('register', {error:'Invalid email or password'})
         }
-        req.session.user = user;
-        res.redirect('/reqform');
+
+        const isPasswordValid = await bcrypt.compare(password, user.password)
+        
+        if (isPasswordValid) {
+            req.session.user = user
+            res.redirect('/reqform')
+        }else{
+            return res.render('complaintslist', {error: 'Invalid password'})
+        }
     }catch(error){
         console.error(error);
         res.status(500).send('Server error');
     }
+}
+
+exports.register = (req, res) => {
+     // validate request
+     if (!req.body) {
+        res.status(400).send({ message: "Content cannot be empty" })
+        return
+    }
+    //hash the password
+    bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
+        if(err){
+            res.status(500).send({
+                message:"error hashing the password"
+            })
+            console.log("error hashing password")
+            return;
+        }
+
+        //new request
+    const newStaff = new User({
+        
+        username: req.body.username,
+        password: hashedPassword,
+        name: req.body.name,
+        staffID: req.body.staffID,
+    })
+
+    //save user in database
+    newStaff.save(newStaff)
+        .then(data => {
+            // res.send(data)
+            res.redirect("/reqform")
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: err.message || "Some error occured while creating staff account"
+            })
+        })
+    })
+    
 }
